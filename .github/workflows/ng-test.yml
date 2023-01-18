@@ -33,15 +33,15 @@ jobs:
       run: printenv
     - name: npm install
       run: |
-        cd workhome-review
+        cd test
         npm install --no-optional  --no-package-lock
         node_modules/@angular/cli/bin/ng --version
     - name: ng lint
-      run: cd workhome-review && node_modules/@angular/cli/bin/ng lint
+      run: cd test && node_modules/@angular/cli/bin/ng lint
     - name: ng test
-      run: cd workhome-review && node_modules/@angular/cli/bin/ng test --watch=false --browsers=ChromeHeadless --sourceMap=false    
+      run: cd test && node_modules/@angular/cli/bin/ng test --watch=false --browsers=ChromeHeadless --sourceMap=false    
     - name: ng build
-      run: cd workhome-review && node_modules/@angular/cli/bin/ng build --prod
+      run: cd test && node_modules/@angular/cli/bin/ng build --prod
     - name: angular build success
       if: ${{ success() }}
       uses: fifsky/dingtalk-action@master
